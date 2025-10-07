@@ -1,5 +1,12 @@
 # Whoogle Search MCP
 
+# MyApp
+
+[![Docker Pulls](https://img.shields.io/docker/pulls/myusername/myapp.svg)](https://hub.docker.com/r/myusername/myapp/)
+[![Docker Image Size](https://img.shields.io/docker/image-size/myusername/myapp/latest.svg)](https://hub.docker.com/r/myusername/myapp/tags)
+[![Docker Stars](https://img.shields.io/docker/stars/myusername/myapp.svg)](https://hub.docker.com/r/myusername/myapp/)
+
+
 A FastAPI-based search proxy server that integrates with Whoogle search engine for AI chat applications, specifically designed for Open WebUI integration.
 
 ## Overview

@@ -1,5 +1,11 @@
 # Whoogle Search MCP
 
+[![Docker Hub](https://img.shields.io/badge/Docker-hdh0926%2Fwhoogle--search--mcp-blue)](https://hub.docker.com/r/hdh0926/whoogle-search-mcp)
+[![Docker Version](https://img.shields.io/docker/v/hdh0926/whoogle-search-mcp?sort=semver)](https://hub.docker.com/r/hdh0926/whoogle-search-mcp/tags)
+[![Docker Pulls](https://img.shields.io/docker/pulls/hdh0926/whoogle-search-mcp)](https://hub.docker.com/r/hdh0926/whoogle-search-mcp)
+[![Image Size (latest)](https://img.shields.io/docker/image-size/hdh0926/whoogle-search-mcp/latest)](https://hub.docker.com/r/hdh0926/whoogle-search-mcp/tags)
+[![Build and Push (Release Only)](https://github.com/Fhwang0926/whoogle-search-mcp/actions/workflows/docker-build.yml/badge.svg)](https://github.com/Fhwang0926/whoogle-search-mcp/actions/workflows/docker-build.yml)
+
 Open WebUI 통합을 위해 특별히 설계된 Whoogle 검색 엔진과 연동하는 FastAPI 기반 검색 프록시 서버입니다.
 
 ## 개요
