@@ -55,7 +55,15 @@ Whoogle을 통해 검색 쿼리를 수행하고 정규화된 결과를 반환합
 
 ## 설치
 
-### Docker 사용 (권장)
+### 사전 빌드된 Docker 이미지 사용 (권장)
+
+최신 Docker 이미지는 모든 릴리스에서 자동으로 빌드되어 Docker Hub에 푸시됩니다:
+
+```bash
+docker run -p 8080:8080 -e WHOOGLE_BASE_URL=http://your-whoogle-instance:5000 your-username/whoogle-search-mcp:latest
+```
+
+### 소스에서 빌드
 
 1. 저장소 클론:
 ```bash
@@ -103,6 +111,27 @@ uvicorn app:app --host 0.0.0.0 --port 8080
 ### 환경 변수
 
 - `WHOOGLE_BASE_URL`: Whoogle 인스턴스의 URL (기본값: `http://whoogle:5000`)
+
+### 설정 파일
+
+`env.sample`을 `.env`로 복사하고 필요에 따라 값을 수정하세요:
+
+```bash
+cp env.sample .env
+```
+
+`env.sample` 파일의 내용:
+```bash
+# Whoogle Search MCP Server Configuration
+
+# Whoogle server url
+# 기본값: http://whoogle:5000
+WHOOGLE_BASE_URL=http://whoogle:5000
+
+# 예시:
+# WHOOGLE_BASE_URL=http://localhost:5000
+# WHOOGLE_BASE_URL=https://your-whoogle-instance.com
+```
 
 ### 설정 예시
 
@@ -158,17 +187,27 @@ curl "http://localhost:8080/search?query=머신러닝"
 ### 프로젝트 구조
 ```
 whoogle-search-mcp/
-├── app.py              # 메인 FastAPI 애플리케이션
-├── requirements.txt    # Python 의존성
-├── Dockerfile         # Docker 구성
-├── README.md          # 이 파일
-└── LICENSE            # MIT 라이선스
+├── app.py                    # 메인 FastAPI 애플리케이션
+├── requirements.txt          # Python 의존성
+├── Dockerfile               # Docker 구성
+├── env.sample               # 환경 변수 템플릿
+├── README.md                # 영어 문서
+├── README.ko.md             # 한국어 문서
+├── LICENSE                  # MIT 라이선스
+└── .github/
+    └── workflows/
+        └── docker-build.yml # Docker Hub용 GitHub Actions
 ```
 
 ### 의존성
 - **FastAPI**: API 구축을 위한 웹 프레임워크
 - **httpx**: Whoogle에 요청을 보내기 위한 비동기 HTTP 클라이언트
 - **uvicorn**: 애플리케이션 실행을 위한 ASGI 서버
+
+### CI/CD 파이프라인
+- **GitHub Actions**: Docker Hub로의 자동 Docker 이미지 빌드 및 푸시
+- **멀티 플랫폼 지원**: linux/amd64 및 linux/arm64 아키텍처용 빌드
+- **자동 태깅**: 브랜치, 버전 및 최신 릴리스용 태그 생성
 
 ## 라이선스
 

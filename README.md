@@ -55,7 +55,15 @@ Performs a search query through Whoogle and returns normalized results.
 
 ## Installation
 
-### Using Docker (Recommended)
+### Using Pre-built Docker Image (Recommended)
+
+The latest Docker image is automatically built and pushed to Docker Hub on every release:
+
+```bash
+docker run -p 8080:8080 -e WHOOGLE_BASE_URL=http://your-whoogle-instance:5000 your-username/whoogle-search-mcp:latest
+```
+
+### Building from Source
 
 1. Clone the repository:
 ```bash
@@ -103,6 +111,27 @@ uvicorn app:app --host 0.0.0.0 --port 8080
 ### Environment Variables
 
 - `WHOOGLE_BASE_URL`: URL of your Whoogle instance (default: `http://whoogle:5000`)
+
+### Configuration File
+
+Copy `env.sample` to `.env` and modify the values as needed:
+
+```bash
+cp env.sample .env
+```
+
+The `env.sample` file contains:
+```bash
+# Whoogle Search MCP Server Configuration
+
+# Whoogle server url
+# Default: http://whoogle:5000
+WHOOGLE_BASE_URL=http://whoogle:5000
+
+# Examples:
+# WHOOGLE_BASE_URL=http://localhost:5000
+# WHOOGLE_BASE_URL=https://your-whoogle-instance.com
+```
 
 ### Example Configuration
 
@@ -158,17 +187,27 @@ curl "http://localhost:8080/search?query=machine learning"
 ### Project Structure
 ```
 whoogle-search-mcp/
-├── app.py              # Main FastAPI application
-├── requirements.txt    # Python dependencies
-├── Dockerfile         # Docker configuration
-├── README.md          # This file
-└── LICENSE            # MIT License
+├── app.py                    # Main FastAPI application
+├── requirements.txt          # Python dependencies
+├── Dockerfile               # Docker configuration
+├── env.sample               # Environment variables template
+├── README.md                # English documentation
+├── README.ko.md             # Korean documentation
+├── LICENSE                  # MIT License
+└── .github/
+    └── workflows/
+        └── docker-build.yml # GitHub Actions for Docker Hub
 ```
 
 ### Dependencies
 - **FastAPI**: Web framework for building APIs
 - **httpx**: Async HTTP client for making requests to Whoogle
 - **uvicorn**: ASGI server for running the application
+
+### CI/CD Pipeline
+- **GitHub Actions**: Automated Docker image building and pushing to Docker Hub
+- **Multi-platform Support**: Builds for linux/amd64 and linux/arm64 architectures
+- **Automatic Tagging**: Creates tags for branches, versions, and latest releases
 
 ## License
 
