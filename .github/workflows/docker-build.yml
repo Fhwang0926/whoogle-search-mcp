@@ -9,7 +9,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: hdh0926/${{ github.repository }}
+  IMAGE_NAME: hdh0926/whoogle-search-mcp
 
 jobs:
   build-and-push:
