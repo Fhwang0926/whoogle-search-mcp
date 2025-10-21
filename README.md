@@ -199,6 +199,8 @@ whoogle-search-mcp/
 ├── env.sample               # Environment variables template
 ├── README.md                # English documentation
 ├── README.ko.md             # Korean documentation
+├── README.ja.md             # Japanese documentation
+├── README.zh.md             # Chinese documentation
 ├── LICENSE                  # MIT License
 └── .github/
     └── workflows/
@@ -214,6 +216,15 @@ whoogle-search-mcp/
 - **GitHub Actions**: Automated Docker image building and pushing to Docker Hub
 - **Multi-platform Support**: Builds for linux/amd64 and linux/arm64 architectures
 - **Automatic Tagging**: Creates tags for branches, versions, and latest releases
+
+## Multilingual Support
+
+This project supports multiple languages:
+
+- 🇺🇸 [English](README.md) - Original documentation
+- 🇰🇷 [한국어](README.ko.md) - Korean documentation  
+- 🇯🇵 [日本語](README.ja.md) - Japanese documentation
+- 🇨🇳 [中文](README.zh.md) - Chinese documentation
 
 ## License
 
