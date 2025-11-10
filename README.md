@@ -155,7 +155,7 @@ WHOOGLE_BASE_URL=https://your-whoogle-instance.com
 version: '3.8'
 services:
   whoogle-search-mcp:
-    image: your-username/whoogle-search-mcp:latest
+    image: hdh0926/whoogle-search-mcp:latest
     ports:
       - "8080:8080"
     environment:
